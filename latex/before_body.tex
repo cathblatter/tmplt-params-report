@@ -1,0 +1,21 @@
+% Include the cover page
+\includepdf[pages={1, 2}]{layout/DE-cover-example.pdf}
+
+
+% % % this would be code for an empty white page as the 2nd page after 
+% the cover - if the cover has an emtpy page as page 2, you can just import it
+% and leave this part commented
+% % \begin{titlepage}
+% \thispagestyle{empty}
+% \begin{center}
+% 
+% \end{center}
+% % \end{titlepage}
+
+
+% this line includes a page with the title: TEXT from the YAML-header - if you
+%  dont need that, rm or better comment it (wont be evaluated then)
+\let\maketitle\oldmaketitle
+\maketitle
+
+\newpage

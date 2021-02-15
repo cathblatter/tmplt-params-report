@@ -1,0 +1,70 @@
+---
+params:
+  center: NULL
+  language: "DE"
+  restrict_level: NULL
+output:
+  bookdown::pdf_document2:
+    toc: true
+    latex_engine: xelatex
+    includes:
+      in_header: latex/preamble.tex
+      before_body: latex/before_body.tex
+      after_body: latex/after_body.tex
+    fig_caption: true
+title: Report center `r params$center`
+---
+\pagenumbering{roman}
+\newpage
+
+```{r setup, eval=TRUE, echo=FALSE}
+
+# the 'setup' chunk is the first chunk and allows you to set global options for 
+# later on - i.e. rules for all chunks
+
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE, 
+                      warning = FALSE, warnings = FALSE)
+
+
+# second, you load all the packages you need
+suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(kableExtra))
+
+# third, you load your data
+# fourth, you source all the scripts you wrote to prepare your data and results
+
+
+
+```
+
+
+
+```{r specs}
+
+```
+
+
+```{r select_chapters}
+
+# the 'select_chapters' chunk selects the files that will be stitched together via the next chunk
+# i.e. if you want to omit/add chapters, you need to 1) create the chapter within 
+# the chapter/ directory, then add the filename in the c()-command below
+
+chapter_files <- paste0("chapters/",
+                        params$language, 
+                        c("-01_intro.Rmd", 
+                          "-02_methods.Rmd", 
+                          "-03_results.Rmd"))
+
+# the stitch_chapters-chunk needs to be left empty - through the 'child' command
+# it is specified, what files will be stitched together
+
+```
+
+\pagenumbering{arabic}
+
+```{r stitch_chapters, child=chapter_files}
+
+```
+
+
