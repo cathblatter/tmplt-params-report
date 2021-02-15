@@ -14,6 +14,7 @@ output:
     fig_caption: true
 title: Report center `r params$center`
 ---
+
 \pagenumbering{roman}
 \newpage
 
@@ -37,17 +38,14 @@ suppressPackageStartupMessages(library(kableExtra))
 
 ```
 
-
-
 ```{r specs}
 
 ```
 
-
 ```{r select_chapters}
 
-# the 'select_chapters' chunk selects the files that will be stitched together via the next chunk
-# i.e. if you want to omit/add chapters, you need to 1) create the chapter within 
+# the 'select_chapters' chunk selects the files that will be stitched together 
+# via the next chunk i.e. if you want to omit/add chapters, you need to 1) create the chapter within 
 # the chapter/ directory, then add the filename in the c()-command below
 
 chapter_files <- paste0("chapters/",
@@ -67,4 +65,8 @@ chapter_files <- paste0("chapters/",
 
 ```
 
+# Appendix 1
 
+```{r, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+
+```
