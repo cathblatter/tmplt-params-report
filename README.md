@@ -19,6 +19,10 @@ Parameter features (the things that can be changed) include for now:
  
  The easiest is to fork/clone or download this repo and start working locally. 
  
+ ## How to work with it?
+ 
+ **section is work in progress**
+ 
  
  ## Contributions welcome 👋
  
