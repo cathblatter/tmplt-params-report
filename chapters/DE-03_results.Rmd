@@ -1,0 +1,33 @@
+# Ergebnisse
+
+
+## Bilder
+
+```{r, fig.cap= "a plot", fig.pos='h'}
+plot(mtcars$mpg, mtcars$cyl)
+```
+
+some boring text
+ 
+## Tabellen
+
+```{r, fig.pos='h'}
+kableExtra::kable(head(mtcars), caption = "A table") %>% kableExtra::kable_styling(latex_options = c("hold_position"))
+```
+
+
+## Mehr Grafiken
+
+```{r}
+ggplot(drop_na(palmerpenguins::penguins), aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
+  geom_point() +
+  facet_wrap(~sex) +
+  scale_color_brewer(palette = 3, type = "qual") +
+  labs(caption = "data source: palmerpenguins-package") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+
+<!-- the last line needs to specify the \newpage-command -->
+\newpage
