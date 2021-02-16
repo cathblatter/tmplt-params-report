@@ -1,6 +1,6 @@
 ---
 params:
-  center: NULL
+  center: 501
   language: "DE"
   restrict_level: NULL
 output:
@@ -31,8 +31,14 @@ knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(kableExtra))
 
-# third, you load your data
+# third, you load your data and source the reporting vectors
+source("R/00_import.R")
+source("R/99_reporting_vectors.R")
+
 # fourth, you source all the scripts you wrote to prepare your data and results
+source("R/01_prepare.R")
+
+# next, source the functions you need to use
 
 
 
