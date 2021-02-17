@@ -13,13 +13,13 @@ some boring text
 ```{r, fig.pos='h'}
 kableExtra::kable(head(mtcars), caption = "A table") %>% 
   kableExtra::kable_styling(latex_options = c("hold_position"))
-
-n_valid <- function(x) {sum(!is.na(x))}
-
-full1 <- as.list(sample_data[ , vec_leadership])
-filter1 <- as.list(filtered_data[ , vec_leadership])
-
-map2(full1, filter1, n_valid)
+# 
+# n_valid <- function(x) {sum(!is.na(x))}
+# 
+# full1 <- as.list(sample_data[ , vec_leadership])
+# filter1 <- as.list(filtered_data[ , vec_leadership])
+# 
+# map2(full1, filter1, n_valid)
 
 ```
 
