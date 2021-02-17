@@ -24,12 +24,12 @@ Other features include:
     `bookdown::pdf_document2`allows cross-platform editing (windows, mac
     and linux users) without the encoding-snafu
 
-\#\# How to use it?
+## How to use it?
 
 The easiest is to fork/clone or download this repo and start working
 locally.
 
-\#\# How does it work?
+## How does it work?
 
 *section is work in progress*
 
@@ -53,14 +53,7 @@ But depending on the parameter ‘language’, styling/text of table headers
 changes and different text files used to be stitched together as the
 report.
 
-<div class="figure" style="text-align: center">
-
-<img src="/Users/blacat01/Documents/zz_GitHub/tmplt-params-report/vignettes/graph_tmpls-report.png" alt="Logic workflow" width="960" />
-<p class="caption">
-Logic workflow
-</p>
-
-</div>
+![Logic workflow](vignettes/graph_tmpls-report.png)
 
 The main file to use in production is `index.Rmd` which will - when
 configured properly - output a file called `index.pdf` in the language
@@ -70,6 +63,6 @@ The graph is draft and should serve to support the main idea behind
 these reports. It is neither complete nor exclusive and feedback is
 welcome.
 
-\#\# Contributions welcome 👋
+## Contributions welcome 👋
 
 Have an idea for the better? File an issue or start a PR - thanks.
