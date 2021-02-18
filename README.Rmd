@@ -14,56 +14,79 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-# Template for parametrised reporting at INS
+# Template for parametrised reporting at INS (Institute of Nursing Science)  
 
-This repo holds a draft version for parametrised reports in Rmarkdown.  
+*Catherine Blatter, 2020*
+
+## How does it work?  
+ 
+*section is work in progress*
+ 
+In general, parametrised reports<sup>[1](#myfootnote1)</sup> have usually the same structure, layout
+and computational background, but depending on the input of parameters some of 
+these properties may and some always change. In our case the main change driven 
+by the parameter language affects the properties structure and some layout 
+properties (i.e. affecting everything captured in text not in numbers). In very 
+rare cases the structure changes based on the underlying data; e.g. if a center 
+does not have more than one unit, there is no need to add additional "per unit"
+results on a different page, thus this past should be omitted.  
+ 
+This graph provides an overview of the workflow. The main file to use in production
+is `index.Rmd`. Knitting `index.Rmd` will - when configured properly - output a file 
+called `index.pdf` tailored to the center defined in `params$center`.
+While the results (i.e. the cell-content of the tables) are dependent on the center 
+chosen, the computational code stays the same. General table formatting (e.g. `kableExtra::kable()` and 
+`kable_styling()`) remains mostly the same, too. The process is then split based on 
+the language-parameter: Depending on its input, formatting/styling of text in table headers 
+changes and, expectantly, different text files used to be stitched together as the report.  
+
+<div align='center'>
+![Logic workflow](vignettes/img/graph_tmpls-report.png)
+</div>
+
+The graph is a draft and should serve to support the main idea behind these 
+reports. It is neither complete nor exclusive and feedback is welcome. More
+detailed information is to be found in the vignette (which is as to date not 
+available, 2020-02-17).  
+
+## Main features
 
 Parameter features (the things that can be changed) include for now:  
 
- - center # this can actually be changed to whatever setting your are working on
+ - center
  - language (allows for reporting in several languages for same center, important for bilingual cities)
  - restrict_level (if pct-agreement per answer should be restricted if less than X answers were given per group to protect respondents) 
  
- Other features include:  
+Other features include:  
+- Logo in header 
+- inclusion of Cover page from external pdfs 
+- switch from `rmarkdown::pdf_document` to `bookdown::pdf_document2`allows cross-platform editing (windows, mac and linux users) without the encoding-snafu  
  
- - Logo in header 
- - inclusion of Cover page from external pdfs 
- - switch from `rmarkdown::pdf_document` to `bookdown::pdf_document2`allows cross-platform editing (windows, mac and linux users) without the encoding-snafu  
- 
- 
+
 ## How to use it? 
  
 The easiest is to fork/clone or download this repo and start working locally. 
 
-## How does it work?  
- 
- *section is work in progress*
- 
- In general, parametrised reports have usually the same structure, layout, linguistic 
- and computational background, but depending on the parameters some of these properties 
- may change (the results of computation change every time - that's the idea of 
- parametrised reports).  In our case the main change driven by the parameter language 
- affects the linguistic and some layout properties (i.e. affecting everything captured 
- in text not in numbers). In very rare cases the structure changes based on the 
- underlying data; e.g. if a center does not have more than one unit, there is no need to 
- add "per unit" results on a different page, thus this past should be omitted.  
- 
- This graph provides a overview of the workflow when knitting the index.Rmd-
- file. The computational code stays the same (i.e. the cell-content of the tables is 
- dependent by the parameter 'center', but the computation stays the same). General 
- table formatting (such as `kableExtra::kable()` and `kable_styling()`) remains the 
-same, too.  
-But depending on the parameter 'language', styling/text of table headers changes and 
-different text files used to be stitched together as the report.  
 
-![Logic workflow](vignettes/graph_tmpls-report.png)
- 
- The main file to use in production is `index.Rmd` which will - when configured 
- properly - output a file called `index.pdf` in the language defined in the params-section.  
- 
- The graph is  draft and should serve to support the main idea behind these 
- reports. It is neither complete nor exclusive and feedback is welcome.  
- 
 ## Contributions welcome 👋
  
- Have an idea for the better? File an issue or start a PR - thanks. 
+Have an idea for the better? File an issue or start a PR - thanks. 
+
+## Disclaimer
+
+If you use this template outside of INS and find it helpful consider mentioning 
+its source.  
+
+*Report was setup with:* 
+
+```{r, echo = F}
+sessionInfo()
+```
+
+### Acknowlegdements 
+
+Thanks to @yihui (the creator of rmarkdown/bookdown and other packages) and @sharlagelfand
+for pointing me to bookdown in the first place.  
+
+
+<a name="myfootnote1">1</a>: https://bookdown.org/yihui/rmarkdown/parameterized-reports.html
