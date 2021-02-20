@@ -1,0 +1,41 @@
+---
+title: "Vignette"
+author: Catherine Blatter
+output: 
+  bookdown::html_document2:
+    toc: true
+    toc_float: 
+      collapsed: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
+# Walk through the `index.Rmd`-file
+
+....
+
+## the YAML-section
+
+
+
+## the `setup`-chuck
+
+```{r}
+
+```
+
+## the `specs`-chunk
+
+```{r}
+
+```
+
+
+## the `select_chapters` & `sticht_chapters`-chunks
+
+```{r}
+
+```
+

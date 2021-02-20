@@ -14,28 +14,29 @@
 In general, parametrised reports<sup>[1](#myfootnote1)</sup> have
 usually the same structure, layout and computational background, but
 depending on the input of parameters some of these properties may and
-some always change. In our case the main change driven by the parameter
-language affects the properties structure and some layout properties
-(i.e. affecting everything captured in text not in numbers). In very
-rare cases the structure changes based on the underlying data; e.g. if a
-center does not have more than one unit, there is no need to add
-additional “per unit” results on a different page, thus this past should
-be omitted.
+some always change (computational results). In our case the main change
+driven by the parameter ‘language’ affects the structure and some layout
+properties (i.e. affecting everything captured in text not in numbers).
+In few cases, the structure changes based on the underlying data
+(i.e. the parameter ‘center’ ); e.g. if a center does not have more than
+one unit, there is no need to add additional “per unit” results on a
+different page, thus this past should be omitted.
 
-This graph provides an overview of the workflow. The main file to use in
-production is `index.Rmd`. Knitting `index.Rmd` will - when configured
-properly - output a file called `index.pdf` tailored to the center
-defined in `params$center`. While the results (i.e. the cell-content of
-the tables) are dependent on the center chosen, the computational code
-stays the same. General table formatting (e.g. `kableExtra::kable()` and
-`kable_styling()`) remains mostly the same, too. The process is then
-split based on the language-parameter: Depending on its input,
-formatting/styling of text in table headers changes and, expectantly,
-different text files used to be stitched together as the report.
+This graph provides an overview of the workflow from top to bottom. The
+main file to use in production is `index.Rmd`. Knitting `index.Rmd` will
+- when configured properly - output a file called `index.pdf` tailored
+to the center defined in `params$center`. While the results (i.e. the
+cell-content of the tables) are dependent on the center chosen, the
+computational code stays the same. General table formatting
+(e.g. `kableExtra::kable()` and `kable_styling()`) remains mostly the
+same, too. The process is then split based on the language-parameter:
+Depending on its input, formatting/styling of text in table headers
+changes and, expectantly, different text files used to be stitched
+together as the report.
 
 <div align="center">
 
-![Logic workflow](vignettes/img/graph_tmpls-report.png)
+![Logic workflow](docs/img/graph_tmpls-report.png)
 
 </div>
 
@@ -44,7 +45,7 @@ these reports. It is neither complete nor exclusive and feedback is
 welcome. More detailed information is to be found in the vignette (which
 is as to date not available, 2020-02-17).
 
-## Main features
+## Main features & how to use it
 
 Parameter features (the things that can be changed) include for now:
 
@@ -60,41 +61,46 @@ from `rmarkdown::pdf_document` to `bookdown::pdf_document2`allows
 cross-platform editing (windows, mac and linux users) without the
 encoding-snafu
 
-## How to use it?
-
 The easiest is to fork/clone or download this repo and start working
-locally.
-
-## Contributions welcome 👋
-
-Have an idea for the better? File an issue or start a PR - thanks.
+locally.  
+For plain workflow you can remove `docs/`, `README.md` and `README.Rmd`.
 
 ## Disclaimer
 
-If you use this template outside of INS and find it helpful consider
-mentioning its source.
+If you use this template outside and/or find it to be helpful for your
+work, consider mentioning its source.
+
+Have an idea for the better? File an issue or start a PR.
 
 *Report was setup with:*
 
-    #> R version 4.0.3 (2020-10-10)
-    #> Platform: x86_64-apple-darwin17.0 (64-bit)
-    #> Running under: macOS Catalina 10.15.7
-    #> 
-    #> Matrix products: default
-    #> BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
-    #> LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
-    #> 
-    #> locale:
-    #> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-    #> 
-    #> attached base packages:
-    #> [1] stats     graphics  grDevices utils     datasets  methods   base     
-    #> 
-    #> loaded via a namespace (and not attached):
-    #>  [1] compiler_4.0.3  magrittr_2.0.1  tools_4.0.3     htmltools_0.5.0
-    #>  [5] yaml_2.2.1      stringi_1.5.3   rmarkdown_2.6   knitr_1.30     
-    #>  [9] stringr_1.4.0   xfun_0.20       digest_0.6.27   rlang_0.4.10   
-    #> [13] evaluate_0.14
+``` r
+sessionInfo()
+#> R version 4.0.3 (2020-10-10)
+#> Platform: x86_64-apple-darwin17.0 (64-bit)
+#> Running under: macOS Catalina 10.15.7
+#> 
+#> Matrix products: default
+#> BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+#> LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+#> 
+#> locale:
+#> [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+#> 
+#> attached base packages:
+#> [1] stats     graphics  grDevices utils     datasets  methods   base     
+#> 
+#> loaded via a namespace (and not attached):
+#>  [1] compiler_4.0.3  magrittr_2.0.1  tools_4.0.3     htmltools_0.5.0
+#>  [5] yaml_2.2.1      stringi_1.5.3   rmarkdown_2.6   knitr_1.30     
+#>  [9] stringr_1.4.0   xfun_0.20       digest_0.6.27   rlang_0.4.10   
+#> [13] evaluate_0.14
+```
+
+``` r
+rmarkdown::pandoc_version()
+#> [1] '2.11.3.2'
+```
 
 ### Acknowlegdements
 
