@@ -1,8 +1,8 @@
 ---
 params:
-  center: 501
-  language: "DE"
-  restrict_level: NULL
+  center: 502 # one of 501, 502 or 503
+  language: "DE" # one of "DE", "FR" or "IT"
+  restrict_level: 10 # NULL or integer, e.g. 10
 output:
   bookdown::pdf_document2:
     toc: true
@@ -14,10 +14,11 @@ output:
     fig_caption: true
 title: Report center `r params$center`
 ---
-
+<!-- adding the display of page numbers - in roman for TOC -->
+\rfoot{\thepage}
 \pagenumbering{roman}
 \newpage
-
+<!-- here starts the document body -->
 ```{r setup, eval=TRUE, echo=FALSE}
 
 # the 'setup' chunk is the first chunk and allows you to set global options for 
@@ -27,20 +28,31 @@ knitr::opts_chunk$set(eval = TRUE, echo = FALSE,
                       warning = FALSE, warnings = FALSE)
 
 
-# second, you load all the packages you need
-suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(kableExtra))
+# set the tidyverse warnings to quiet
+options(tidyverse.quiet = TRUE,
+        dplyr.summarise.inform = FALSE, 
+        knitr.kable.NA = '-') # set NA-values to '-' in tables
+
+# # suppress summarise info
+# options(dplyr.summarise.inform = FALSE)
+
+# you load all the packages you need
+library(tidyverse, warn.conflicts = FALSE) # Easily Install and Load the 'Tidyverse', CRAN v1.3.0 
+library(tidyselect) # Select from a Set of Strings, CRAN v1.1.0 
+library(scales, warn.conflicts = FALSE) # Scale Functions for Visualization, CRAN v1.1.1 
+library(kableExtra, warn.conflicts = FALSE) # Construct Complex Table with 'kable' and Pipe Syntax, CRAN v1.2.1
+# hsrtools holds functions working with restrict_level
+library(hsrtools) # remotes::install_github("INS-Basel/hsrtools")
 
 # third, you load your data and source the reporting vectors
 source("R/00_import.R")
 source("R/99_reporting_vectors.R")
+source("R/99_functions.R")
 
 # fourth, you source all the scripts you wrote to prepare your data and results
 source("R/01_prepare.R")
-
+source("R/02_calc_tabls.R")
 # next, source the functions you need to use
-
-
 
 ```
 
@@ -51,8 +63,8 @@ source("R/01_prepare.R")
 ```{r select_chapters}
 
 # the 'select_chapters' chunk selects the files that will be stitched together 
-# via the next chunk i.e. if you want to omit/add chapters, you need to 1) create the chapter within 
-# the chapter/ directory, then add the filename in the c()-command below
+# via the next chunk. If you want to omit/add chapters, you need to 1) create the chapter within 
+# the chapter/ directory, then add the filename (minus the language) in the c()-command below
 
 chapter_files <- paste0("chapters/",
                         params$language, 
@@ -71,8 +83,3 @@ chapter_files <- paste0("chapters/",
 
 ```
 
-# Appendix 1
-
-```{r, ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
-
-```
