@@ -1,3 +1,7 @@
+
+
+# 1. Full dataset ---------------------------------------------------------
+
 # Prepare the data for reporting, i.e. creating a 
 # filtered_data with the data for the target center
 # you can pass the argument through the params$center command
@@ -13,3 +17,8 @@ if (params$center == 999) {
       sample_data %>% 
       filter(center %in% params$center)
   }
+
+
+# 2. Dichotomize dataset --------------------------------------------------
+
+
