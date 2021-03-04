@@ -1,29 +1,6 @@
 # Ergebnisse
 
-## Bilder
-
-```{r, fig.cap= "a plot", fig.pos='h'}
-plot(mtcars$mpg, mtcars$cyl)
-```
-
-some boring text
-
-## Tabellen
-
-```{r, fig.pos='h'}
-kableExtra::kable(head(mtcars), caption = "A table") %>% 
-  kableExtra::kable_styling(latex_options = c("hold_position"))
-# 
-# n_valid <- function(x) {sum(!is.na(x))}
-# 
-# full1 <- as.list(sample_data[ , vec_leadership])
-# filter1 <- as.list(filtered_data[ , vec_leadership])
-# 
-# map2(full1, filter1, n_valid)
-
-```
-
-## Mehr Grafiken
+## Grafiken
 
 ```{r}
 ggplot(drop_na(palmerpenguins::penguins), 
@@ -36,6 +13,25 @@ ggplot(drop_na(palmerpenguins::penguins),
   theme(legend.position = "bottom")
 ```
 
-<!-- the last line needs to specify the \newpage-command -->
+## Tabellen
 
-\newpage
+### Alles Personal
+
+```{r leadership-global, fig.pos='h'}
+style_global_tbl(df = tbl_leadership_global)
+```
+
+### Nach Abteilung
+
+```{r leadership-unit}
+style_unit_tbl(df = tbl_leadership_unit)
+```
+
+
+some text here
+
+
+
+<!-- the last line needs to specify the \clearpage-command -->
+
+\clearpage
