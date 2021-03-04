@@ -1,13 +1,19 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<!-- badges: start -->
-<!-- badges: end -->
 
-# Template for parametrised reporting at INS (Institute of Nursing Science)
+# Template for parametrised reporting
 
-*Catherine Blatter, 2020*
+*originally set up for reporting in multilingual settings at [Institute
+of Nursing Science](https://github.com/INS-Basel)*  
+*Catherine Blatter, 2018-2020*
 
 ## How does it work?
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
 
 *section is work in progress*
 
@@ -24,8 +30,8 @@ different page, thus this past should be omitted.
 
 This graph provides an overview of the workflow from top to bottom. The
 main file to use in production is `index.Rmd`. Knitting `index.Rmd` will
-- when configured properly - output a file called `index.pdf` tailored
-to the center defined in `params$center`. While the results (i.e. the
+(when configured properly) output a file called `index.pdf` tailored to
+the center defined in `params$center`. While the results (i.e. the
 cell-content of the tables) are dependent on the center chosen, the
 computational code stays the same. General table formatting
 (e.g. `kableExtra::kable()` and `kable_styling()`) remains mostly the
@@ -47,29 +53,29 @@ is as to date not available, 2020-02-17).
 
 ## Main features & how to use it
 
-Parameter features (the things that can be changed) include for now:
+Parameter features include for now:
 
--   center  
--   language (allows for reporting in several languages for same center,
-    important for bilingual cities)  
--   restrict\_level (if pct-agreement per answer should be restricted if
-    less than X answers were given per group to protect respondents)
+-   `center`  
+-   `language` (allows for reporting in several languages for same
+    center, important for bilingual cities)  
+-   `restrict_level` (if pct-agreement per answer should be restricted
+    if less than X answers were given per group to protect respondents)
 
 Other features include:  
-- Logo in header  
-- inclusion of Cover page from external pdfs  
+- logo(s) in header  
+- inclusion of cover pages from external pdfs  
 - switch from `rmarkdown::pdf_document` to
 `bookdown::pdf_document2`allows cross-platform editing (windows, mac and
 linux users) without the encoding-snafu
 
 The easiest is to fork/clone or download this repo and start working
-locally.  
-For plain workflow you can remove `docs/`, `README.md` and `README.Rmd`.
+locally. For plain workflow you can remove `docs/`, `README.md` and
+`README.Rmd`.
 
 ## Disclaimer
 
-If you use this template outside and/or find it to be helpful for your
-work, consider mentioning its source.
+If you find this template helpful or use it for your work, consider
+mentioning all contributors to this repo.
 
 Have an idea for the better? File an issue or start a PR.
 
@@ -77,7 +83,7 @@ Have an idea for the better? File an issue or start a PR.
 
 ``` r
 sessionInfo()
-#> R version 4.0.3 (2020-10-10)
+#> R version 4.0.2 (2020-06-22)
 #> Platform: x86_64-apple-darwin17.0 (64-bit)
 #> Running under: macOS Catalina 10.15.7
 #> 
@@ -92,15 +98,15 @@ sessionInfo()
 #> [1] stats     graphics  grDevices utils     datasets  methods   base     
 #> 
 #> loaded via a namespace (and not attached):
-#>  [1] compiler_4.0.3  magrittr_2.0.1  tools_4.0.3     htmltools_0.5.0
-#>  [5] yaml_2.2.1      stringi_1.5.3   rmarkdown_2.6   knitr_1.30     
+#>  [1] compiler_4.0.2  magrittr_2.0.1  tools_4.0.2     htmltools_0.5.1
+#>  [5] yaml_2.2.1      stringi_1.5.3   rmarkdown_2.6.6 knitr_1.30     
 #>  [9] stringr_1.4.0   xfun_0.20       digest_0.6.27   rlang_0.4.10   
 #> [13] evaluate_0.14
 ```
 
 ``` r
 rmarkdown::pandoc_version()
-#> [1] '2.11.3.2'
+#> [1] '2.11.4'
 ```
 
 ### Acknowlegdements
