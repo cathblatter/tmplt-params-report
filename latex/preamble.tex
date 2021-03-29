@@ -15,6 +15,9 @@
 % help caption figures and tables
 \usepackage{caption}
 
+% comment this out in production - shows the page margins
+\usepackage{showframe}
+
 % define page geometry
 \geometry{a4paper, bottom=40mm}
 
@@ -29,6 +32,7 @@
 \pagestyle{fancy}
 \fancyhf{} % sets both header and footer to nothing
 \addtolength{\headheight}{38pt} % make more space for the header
+\addtolength{\headwidth}{-20pt} % making the headwidth smaller (pushes left logo in / out)
 \pagestyle{fancyplain} % use fancy for all pages except chapter start
 \lhead{\includegraphics[height=1.2cm]{layout/INS-logo-placeholder.png}} % left logo
 \rhead{\includegraphics[height=1.2cm]{layout/project-logo-placeholder.png}} % right logo
