@@ -92,8 +92,8 @@ rmarkdown::pandoc_version()
 
 ### Acknowlegdements 
 
-Thanks to @yihui (the creator of rmarkdown/bookdown and other packages) and @sharlagelfand
-for pointing me to bookdown in the first place.  
+Thanks to @yihui (the creator of rmarkdown/bookdown and other packages), @sharlagelfand
+for pointing me to bookdown in the first place & @EethB for fixing the header width.  
 
 
 <a name="myfootnote1">1</a>: https://bookdown.org/yihui/rmarkdown/parameterized-reports.html

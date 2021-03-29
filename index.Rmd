@@ -24,8 +24,10 @@ title: Report center `r params$center`
 # the 'setup' chunk is the first chunk and allows you to set global options for 
 # later on - i.e. rules for all chunks
 
-knitr::opts_chunk$set(eval = TRUE, echo = FALSE, 
-                      warning = FALSE, warnings = FALSE)
+knitr::opts_chunk$set(eval = TRUE, 
+                      echo = FALSE, 
+                      warning = FALSE,
+                      warnings = FALSE)
 
 
 # set the tidyverse warnings to quiet
