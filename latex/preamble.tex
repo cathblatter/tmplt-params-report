@@ -16,7 +16,7 @@
 \usepackage{caption}
 
 % comment this out in production - shows the page margins
-\usepackage{showframe}
+% \usepackage{showframe}
 
 % define page geometry
 \geometry{a4paper, bottom=40mm}
@@ -46,6 +46,9 @@
 \fancyhfoffset[LO,RE]{\oddmarginwidth}
 \fancyhfoffset[LE,RO]{\evenmarginwidth}
 
+
+
+
 % define landscape mode to optionally use when having broad tables
 \usepackage{pdflscape}
 \newcommand{\blandscape}{\begin{landscape}}
@@ -53,6 +56,13 @@
 
 % Allow inclusion of other PDFs
 \usepackage{pdfpages}
+
+% Add hyperref package for command \hyperref{}
+% to cross-reference the ToC with links in fancyfoot
+% Trick: add label after YAML in index and then add the reference 
+% at the beginning of body
+\usepackage{hyperref}
+\usepackage{lastpage}
 
 % % Following below
 % turns maketitle off, then you can define your own titlepage in before_body.tex
