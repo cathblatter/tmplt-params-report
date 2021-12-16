@@ -12,9 +12,11 @@ output:
       before_body: latex/before_body.tex
       after_body: latex/after_body.tex
     fig_caption: true
+    keep_tex: false
 title: Report center `r params$center`
 ---
 <!-- adding the display of page numbers - in roman for TOC -->
+\label{ref_to_toc} 
 \rfoot{\thepage}
 \pagenumbering{roman}
 \newpage
@@ -80,6 +82,9 @@ chapter_files <- paste0("chapters/",
 ```
 
 \pagenumbering{arabic}
+
+<!-- % add footer -->
+\rfoot{\emph{\hyperref[ref_to_toc]{Inhaltsverzeichnis}} | \thepage}
 
 ```{r stitch_chapters, child=chapter_files}
 
