@@ -32,6 +32,14 @@ knitr::opts_chunk$set(eval = TRUE,
                       warnings = FALSE)
 
 
+# sets the wording for the toc-reference in the footer 
+# based on params$language
+words_toc <- if (params$language == "DE") {
+  "Inhaltsverzeichnis"} else if (params$language == "FR"){
+    "table des matières" } else {
+      "sommario" }
+
+
 # set the tidyverse warnings to quiet
 options(tidyverse.quiet = TRUE,
         dplyr.summarise.inform = FALSE, 
@@ -83,8 +91,8 @@ chapter_files <- paste0("chapters/",
 
 \pagenumbering{arabic}
 
-<!-- % add footer -->
-\rfoot{\emph{\hyperref[ref_to_toc]{Inhaltsverzeichnis}} | \thepage}
+<!-- add footer with linked reference to toc -->
+\rfoot{\emph{\hyperref[ref_to_toc]{`r words_toc`}} | \thepage}
 
 ```{r stitch_chapters, child=chapter_files}
 
